@@ -14,13 +14,13 @@
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main","Game" ]
   workflow_dispatch:
 
 env:
   AZURE_WEBAPP_NAME: Gaimin           # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: 'IP?.'      # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '14.x' Generational set and lots of options               # set this to the node version to use
+  NODE_VERSION: '14.x'             # set this to the node version to use
 
 permissions:
   contents: read
@@ -64,9 +64,9 @@ jobs:
       with:
         name: node-app
 
-    - name: 'Deploy to Azure WebApp'
+    - name: 'Deploy to Gaimin WebApp'
       id: deploy-to-webapp
-      uses: azure/webapps-deploy@v2
+      uses: Gaimin/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
